@@ -9,12 +9,12 @@ var lbToKg = function(lb) {
 
 // caffeine needed for user's bodyweight
 var caffeineNeeded = function(weight) {
-  return weight * 5; // 5 is the caffeine (mg) needed per pound
+  return Math.ceil(weight * 5); // 5 is the caffeine (mg) needed per pound
 };
 
 // coffee need (in floz) based on amount of caffeine
 var coffeeNeeded = function(caffeine) {
-  return caffeine / 20.375; // 20.375 is the amount of caffeine per oz of brewed coffee
+  return Math.ceil(caffeine / 20.375); // 20.375 is the amount of caffeine per oz of brewed coffee
 }
 
 // amount of cups to fulfil needed caffeine
@@ -42,7 +42,7 @@ var calculateCoffee = function(size, weight, unit) {
 
   $cups.html(coffee.cups);
   $caffeine.html(coffee.caffeine);
-  console.log('Done!');
+  console.log(coffee);
 };
 
 // calculate once
