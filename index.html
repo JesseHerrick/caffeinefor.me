@@ -1,20 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
   <head>
     <title>Caffeine!!!</title>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="An easy way to calculate your next caffeine fix.">
     <meta name="author" content="Jesse Herrick">
 
-    <link rel="stylesheet" href="/bower_components/gridism/gridism.css">
-    <link rel="stylesheet" href="/css/main.css">
-
-    <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="/js/coffee.js"></script>
+    <link rel="stylesheet" href="bower_components/gridism/gridism.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
 
   <body>
-    <p>Hello {{ 'world!' }}</p>
+    <p>Given that my coffee mug is about
+    <select name="size" id="size">
+      <option value="5">6oz (Standard Coffee Mug)</option>
+      <option value="8">8oz (Short - Starbucks)</option>
+      <option value="12">12oz (Tall - Starbucks)</option>
+      <option value="16">16oz (Grande - Starbucks)</option>
+      <option value="20">20oz (Venti - Starbucks)</option>
+    </select>
+    , and my weight is about <input id="weight" type="number" placeholder="175">
+    <select name="unit" id="unit">
+      <option value="lb">pounds</option>
+      <option value="kg">kilograms</option>
+    </select>
+    , I should drink about <span id="cups"></span> of coffee (<span id="caffeine"></span>mg of caffeine) to stay awake for the next 6 hours.
+    </p>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="js/coffee.js"></script>
   </body>
 </html>
