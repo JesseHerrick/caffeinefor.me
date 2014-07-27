@@ -32,7 +32,7 @@ var calculateCoffee = function(size, weight, unit) {
   weight = parseInt(weight);
   size = parseInt(size);
   // check if weight is in lbs, if so, convert it to kg
-  if (isLb(weight)) { weight = lbToKg(weight); };
+  if (isLb(unit)) { weight = lbToKg(weight); };
 
   var coffee = {
     'caffeine': caffeineNeeded(weight),
