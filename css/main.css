@@ -1,0 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,700,500);
+
+body {
+  font-family: 'Roboto';
+  font-size: 2em;
+  margin: 0 15%;
+}
+
+select, input {
+  vertical-align: middle;
+  margin-bottom: 4px;
+}
+
+select {
+  margin-right: -5px;
+}
+
+@media (max-width: 650px) {
+  body {
+    font-size: 1.5em;
+  }
+}
