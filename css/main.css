@@ -27,3 +27,20 @@ select {
   }
   h1 { font-size: 2.25; }
 }
+
+input {
+  border-radius: 6px;
+  font-size: 0.75em;
+  padding: 3px;
+  vertical-align: middle;
+  border: none;
+  font-weight: 700;
+}
+
+input:focus {
+  outline: 0;
+}
+
+#cups, #caffeine {
+  font-weight: 700;
+}

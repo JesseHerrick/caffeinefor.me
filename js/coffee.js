@@ -7,6 +7,10 @@ var lbToKg = function(lb) {
   return lb / 2.2;
 };
 
+var kgToLb = function(kg) {
+  return kg * 2.2;
+}
+
 // caffeine needed for user's bodyweight
 var caffeineNeeded = function(weight) {
   return Math.ceil(weight * 5); // 5 is the caffeine (mg) needed per pound
@@ -26,7 +30,7 @@ var cupAmount = function(size, coffee) {
 var $cups = $('#cups'); // # of cups of coffee (given cup size)
 var $caffeine = $('#caffeine'); // caffeine amount in mg
 
-// finds
+// replaces the html with the proper values
 var calculateCoffee = function(size, weight, unit) {
   // convert weight and size to integers
   weight = parseInt(weight);
@@ -40,9 +44,9 @@ var calculateCoffee = function(size, weight, unit) {
     'cups': cupAmount(size, coffeeNeeded(caffeineNeeded(weight)))
   };
 
-  var cups_suffix = coffee.cups > 1 ? ' cups ' : ' cup ';
-  $cups.html(coffee.cups + cups_suffix);
-  $caffeine.html(coffee.caffeine);
+  var cups_suffix = coffee.cups === 1 ? ' cups ' : ' cup ';
+  $cups.html(coffee.cups || 0 + cups_suffix);
+  $caffeine.html(coffee.caffeine || 0 + 'mg');
   console.log(coffee);
 };
 
@@ -53,6 +57,18 @@ calculateCoffee($('#size').val(), 175, 'lb');
 $('body').change(function(){
   calculateCoffee($('#size').val(), $('#weight').val(), $('#unit').val());
 });
+
+$('#unit').change(function(){
+  var unit = $('#unit').val();
+
+  if (unit === 'kg') {
+    $('#weight').val(Math.ceil(lbToKg(parseInt($('#weight').val()))));
+  }
+  else if (unit === 'lb') {
+    $('#weight').val(Math.ceil(kgToLb(parseInt($('#weight').val()))));
+  };
+});
+
 $('body').bind('input', function(){
   calculateCoffee($('#size').val(), $('#weight').val(), $('#unit').val());
 });
