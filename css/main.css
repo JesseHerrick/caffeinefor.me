@@ -3,9 +3,12 @@
 body {
   font-family: 'Roboto';
   font-size: 2em;
-  margin: 0 15%;
   font-weight: 100;
   height: 100%;
+}
+
+.container {
+  margin: 0 17%;
 }
 
 h1 {
@@ -19,12 +22,13 @@ select, input {
 }
 
 select {
-  margin-right: -5px;
+  margin-right: -2px;
 }
 
 @media (max-width: 650px) {
   body {
     font-size: 1.5em;
+    margin: 8%;
   }
   h1 { font-size: 2em; }
 }
