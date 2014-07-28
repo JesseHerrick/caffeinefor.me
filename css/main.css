@@ -5,6 +5,7 @@ body {
   font-size: 2em;
   margin: 0 15%;
   font-weight: 100;
+  height: 100%;
 }
 
 h1 {
@@ -25,7 +26,7 @@ select {
   body {
     font-size: 1.5em;
   }
-  h1 { font-size: 2; }
+  h1 { font-size: 2em; }
 }
 
 input {
