@@ -4,6 +4,12 @@ body {
   font-family: 'Roboto';
   font-size: 2em;
   margin: 0 15%;
+  font-weight: 100;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
 }
 
 select, input {
@@ -19,4 +25,5 @@ select {
   body {
     font-size: 1.5em;
   }
+  h1 { font-size: 2.25; }
 }

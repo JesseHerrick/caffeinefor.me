@@ -40,13 +40,19 @@ var calculateCoffee = function(size, weight, unit) {
     'cups': cupAmount(size, coffeeNeeded(caffeineNeeded(weight)))
   };
 
-  $cups.html(coffee.cups);
+  var cups_suffix = coffee.cups > 1 ? ' cups ' : ' cup ';
+  $cups.html(coffee.cups + cups_suffix);
   $caffeine.html(coffee.caffeine);
   console.log(coffee);
 };
 
 // calculate once
 calculateCoffee($('#size').val(), 175, 'lb');
+
+// on change and bind to change
 $('body').change(function(){
+  calculateCoffee($('#size').val(), $('#weight').val(), $('#unit').val());
+});
+$('body').bind('input', function(){
   calculateCoffee($('#size').val(), $('#weight').val(), $('#unit').val());
 });
