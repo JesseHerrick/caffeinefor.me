@@ -44,9 +44,9 @@ var calculateCoffee = function(size, weight, unit) {
     'cups': cupAmount(size, coffeeNeeded(caffeineNeeded(weight)))
   };
 
-  var cups_suffix = coffee.cups === 1 ? ' cups ' : ' cup ';
-  $cups.html(coffee.cups || 0 + cups_suffix);
-  $caffeine.html(coffee.caffeine || 0 + 'mg');
+  var cups_suffix = coffee.cups === 1 ? ' cup ' : ' cups ';
+  $cups.html((coffee.cups || 0 ) + cups_suffix);
+  $caffeine.html((coffee.caffeine || 0) + 'mg');
   console.log(coffee);
 };
 

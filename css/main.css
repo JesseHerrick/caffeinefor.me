@@ -35,6 +35,8 @@ input {
   vertical-align: middle;
   border: none;
   font-weight: 700;
+  width: 65px;
+  margin-right: -10px;
 }
 
 input:focus {
