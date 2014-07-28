@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="CaffeineForMe">
   <head>
     <title>Caffeine!!!</title>
 
@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
 
-  <body>
+  <body ng-controller="CaffeineController">
     <h1>Caffeine</h1>
 
     <div class="container">
     <p>I have coffee in a
-    <select name="size" id="size">
+    <select name="size" ng-model="size">
       <option value="5">6oz (Standard Coffee Mug)</option>
       <option value="8">8oz (Short - Starbucks)</option>
       <option value="12">12oz (Tall - Starbucks)</option>
