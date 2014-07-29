@@ -28,7 +28,7 @@ select {
 @media (max-width: 650px) {
   body {
     font-size: 1.5em;
-    margin: 0 5%;
+    margin: 0 1%;
   }
   h1 { font-size: 2em; }
 }
