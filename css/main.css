@@ -61,3 +61,9 @@ input:focus {
 .attr a {
   font-weight: 300;
 }
+
+.disclaimer {
+  font-weight: 300;
+  font-size: 16px;
+  text-align: center;
+}
