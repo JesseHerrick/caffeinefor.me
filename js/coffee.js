@@ -62,10 +62,10 @@ $('#unit').change(function(){
   var unit = $('#unit').val();
 
   if (unit === 'kg') {
-    $('#weight').val(Math.ceil(lbToKg(parseInt($('#weight').val()))));
+    $('#weight').val(Math.ceil(lbToKg($('#weight').val())));
   }
   else if (unit === 'lb') {
-    $('#weight').val(Math.ceil(kgToLb(parseInt($('#weight').val()))));
+    $('#weight').val(Math.floor(kgToLb($('#weight').val())));
   };
 });
 
