@@ -1,7 +1,3 @@
-if (location.protocol == 'http:') {
-  location.protocol = 'https:';
-};
-
 // useful functions
 var isLb = function(unit) {
   return unit === 'lb';
