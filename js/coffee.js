@@ -31,7 +31,7 @@ app.controller('CaffeineController', ['$scope', function($scope) {
   // on any change run this function
   $scope.caffeine.onChange = function() {
     $scope.caffeine.output.perCup = (18.4375 * $scope.caffeine.input.cup); // theNew = oz in cup
-    $scope.caffeine.output.neededCaffeine = Math.round(3 * $scope.caffeine.input.weight);
+    $scope.caffeine.output.neededCaffeine = Math.round(3 * $scope.caffeine.input.weightInKg);
     $scope.caffeine.output.cupsNeeded = Math.round($scope.caffeine.output.neededCaffeine / $scope.caffeine.output.perCup)
 
     if ($scope.caffeine.output.cupsNeeded == 0) { $scope.caffeine.output.cupsNeeded = 1; }
@@ -39,9 +39,13 @@ app.controller('CaffeineController', ['$scope', function($scope) {
   // weight conversions (converts lbs to kgs if necessary)
   $scope.caffeine.output.checkWeight = function() {
     var weight = $scope.caffeine.input.weight;
-    if ($scope.caffeine.input.unit == 'lb') {
-      $scope.caffeine.input.unit = 'kg';
-      $scope.caffeine.input.weight = (weight / 2.2046);
+    var unit = $scope.caffeine.input.unit;
+
+    if (unit == 'lb') {
+      $scope.caffeine.input.weightInKg = (weight / 2.2046)
+    }
+    else {
+      $scope.caffeine.input.weightInKg = weight
     };
   };
   // update the output on input change
@@ -57,6 +61,14 @@ app.controller('CaffeineController', ['$scope', function($scope) {
   });
   // unit check (converts weight if necessary)
   $scope.$watch('caffeine.input.unit', function(theNew, theOld) {
+    // if new unit is kg and the old is lb then convert to kg
+    if (theNew == 'kg' && theOld == 'lb') {
+      $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight / 2.2046)
+    }
+    // if new unit is lb and the old is kg then convert to lb
+    else if (theNew == 'lb' && theOld == 'kg') {
+      $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight * 2.2046)
+    }
     $scope.caffeine.output.checkWeight(); // again, check and convert to kg if needed
     $scope.caffeine.onChange();
   });
