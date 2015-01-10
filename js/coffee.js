@@ -33,7 +33,7 @@ app.controller('CaffeineController', ['$scope', function($scope) {
     $scope.caffeine.output.perCup = (18.4375 * $scope.caffeine.input.cup); // theNew = oz in cup
     $scope.caffeine.output.neededCaffeine = Math.round(3 * $scope.caffeine.input.weightInKg);
     $scope.caffeine.output.cupsNeeded = Math.round(($scope.caffeine.output.neededCaffeine / $scope.caffeine.output.perCup)*10)/10
-    $scope.caffeine.output.coffeeOz = Math.round($scope.caffeine.output.cupsNeeded * $scope.caffeine.input.cup)
+    $scope.caffeine.output.coffeeOz = Math.ceil($scope.caffeine.output.cupsNeeded * $scope.caffeine.input.cup)
   };
   // weight conversions (converts lbs to kgs if necessary)
   $scope.caffeine.output.checkWeight = function() {
