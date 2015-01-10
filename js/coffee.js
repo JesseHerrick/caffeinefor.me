@@ -10,7 +10,7 @@ app.controller('CaffeineController', ['$scope', function($scope) {
   //   unit   = unit the weight is in (lb or kg)
   $scope.caffeine.input = {
     // some friendly defaults
-    'cup': 16,
+    'cup': 6,
     'weight': 175,
     'unit': 'lb'
   };
