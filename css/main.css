@@ -1,18 +1,35 @@
-@import url(//fonts.googleapis.com/css?family=Roboto:400,300,300italic,700,500);
+@import url('//fonts.googleapis.com/css?family=Raleway:100,400,700|Playfair+Display:700italic');
 
 body {
-  font-family: 'Roboto';
+  font-family: 'Raleway', 'Roboto', Helvetica; 
+  font-weight: 400;
   font-size: 2em;
-  font-weight: 100;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: "kern=1";
+  -webkit-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern";
+  font-feature-settings: "kern";
+  font-kerning: normal;
 }
 
 .container {
-  margin: 0 17%;
+  margin: 0 20%;
+}
+
+#coffeeIs {
+  font-family: 'Playfair Display';
+  color: rgba(0, 0, 0, 1);
+  font-weight: 700;
+  font-style: italic;
 }
 
 h1 {
   font-size: 3em;
+  color: rgba(0, 0, 0, .75);
   line-height: 1;
+  font-weight: 100;
   text-align: center;
 }
 
@@ -56,15 +73,20 @@ input:focus {
   display: block;
   margin: 5px auto 10px auto;
   text-align: center;
-  font-size: 14px;
+  font-size: .65em;
+  color: rgba(0, 0, 0, .5);
 }
 
 .attr a {
-  font-weight: 300;
+  color: rgba(0, 0, 0, .65);
+  font-weight: bold;
+  transition: .2s all ease-in-out;
+}
+.attr a:hover {
+  color: rgba(0, 0, 0, .85);
 }
 
 .disclaimer {
-  font-weight: 300;
-  font-size: 16px;
+  font-size: .75em;
   text-align: center;
 }

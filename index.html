@@ -18,12 +18,12 @@
     ga('send', 'pageview');
 
     </script>
-
+    
     <link rel="stylesheet" href="css/main.css">
   </head>
 
   <body>
-    <h1>Coffee</h1>
+    <h1 ng-controller="CoffeeController">Coffee is <span id="coffeeIs">{{coffee.is}}</span></h1>
 
     <div class="container" ng-controller="CaffeineController">
     <p>I have coffee in a
@@ -45,7 +45,7 @@
     <p>So I should drink about <span id="cups">{{ caffeine.output.cupsNeeded }}</span> <strong>{{ caffeine.output.cupsNeeded == 1 ? "cup" : "cups" }}</strong> of coffee (<span id="caffeine">{{ caffeine.output.neededCaffeine }}</span><strong> mg</strong> of caffeine) to stay awake for the next 6 hours.</p>
     </div>
 
-    <p class="disclaimer"><strong>Disclaimer: </strong>Your caffeine tolerance may vary.</p>
+    <p class="disclaimer">Your caffeine tolerance may vary.</p>
 
     <center><a href="https://twitter.com/share" class="twitter-share-button" data-via="JesseHerrick">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></center>

@@ -73,3 +73,17 @@ app.controller('CaffeineController', ['$scope', function($scope) {
     $scope.caffeine.onChange();
   });
 }]);
+
+// for random words about coffee
+app.controller('CoffeeController', ['$scope', function($scope) {
+  var coffeeWords = [
+    "Beautiful",
+    "Delicious",
+    "Fulfilling",
+    "Inspiring",
+    "Bold"
+  ];
+
+  $scope.coffee = {};
+  $scope.coffee.is = coffeeWords[Math.floor(Math.random() * coffeeWords.length)];
+}]);
