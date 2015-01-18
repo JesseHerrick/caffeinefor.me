@@ -1,4 +1,3 @@
-/*
 describe('CoffeeController', function(){
   beforeEach(module('caffeineForMe'));
   var $controller;
@@ -26,7 +25,6 @@ describe('CoffeeController', function(){
     });
   });
 });
-*/
 
 describe('CaffeineController', function(){
   beforeEach(module('caffeineForMe'));
@@ -43,22 +41,50 @@ describe('CaffeineController', function(){
       controller = $controller('CaffeineController', { $scope: $scope });
     });
 
-    it('should do things', function(){
-      expect(true).to.equal(true);
-    });
+    describe('changeUnit', function(){
+      it('should convert pounds to kg', function(){
+        $scope.caffeine.input.unit = 'kg'; // kg is the changed unit
+        $scope.caffeine.input.changeUnit();
 
-    /*
-    describe('#checkWeight', function(){
-      it('should convert pounds to kg if necessary', function(){
-        $scope.caffeine.input.cup = 16;
-        $scope.caffeine.input.weight = 175;
-        $scope.caffeine.input.unit = 'lb';
-
-        $scope.caffeine.output.checkWeight();
-
-        expect(input.weightInKg).to.equal(175 / 2.2046);
+        expect($scope.caffeine.input.unit).to.equal('kg');
+        expect($scope.caffeine.input.weight).to.equal(79);
       });
     });
-    */
+
+    describe('coffee amounts', function(){
+      context('in pounds', function(){
+        it('should return the right amounts for a 6oz cup', function(){
+          expect($scope.caffeine.output.cupsNeeded).to.equal(2.2);
+          expect($scope.caffeine.output.coffeeOz).to.equal(13);
+          expect($scope.caffeine.output.neededCaffeine).to.equal(238);
+        });
+
+        it('should return the right amounts for an 8oz cup', function(){
+          $scope.caffeine.input.size = 8;
+          $scope.caffeine.onChange();
+
+          expect($scope.caffeine.output.cupsNeeded).to.equal(1.6);
+          expect($scope.caffeine.output.coffeeOz).to.equal(13);
+          expect($scope.caffeine.output.neededCaffeine).to.equal(238);
+        });
+
+        it('should return the right amounts for a 12oz cup', function(){
+          $scope.caffeine.input.size = 12;
+          $scope.caffeine.onChange();
+
+          expect($scope.caffeine.output.cupsNeeded).to.equal(1.1);
+          expect($scope.caffeine.output.coffeeOz).to.equal(13);
+          expect($scope.caffeine.output.neededCaffeine).to.equal(238);
+        });
+
+        it('should return the right amounts for a 16oz cup', function(){
+          $scope.caffeine.input.size = 16;
+
+          expect($scope.caffeine.output.cupsNeeded).to.equal(0.8);
+          expect($scope.caffeine.output.coffeeOz).to.equal(13);
+          expect($scope.caffeine.output.caffeineNeeded).to.equal(238);
+        });
+      });
+    });
   });
 });

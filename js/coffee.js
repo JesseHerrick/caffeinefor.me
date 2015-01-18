@@ -36,7 +36,7 @@ app.controller('CaffeineController', ['$scope', function($scope) {
     $scope.caffeine.output.cupsNeeded = Math.round(($scope.caffeine.output.neededCaffeine / $scope.caffeine.output.perCup)*10)/10
     $scope.caffeine.output.coffeeOz = Math.round($scope.caffeine.output.cupsNeeded * $scope.caffeine.input.cup)
   };
-  // weight conversions (converts lbs to kgs if necessary)
+  // adds weight in kg for the algorithm
   $scope.caffeine.output.checkWeight = function() {
     var weight = $scope.caffeine.input.weight;
     var unit = $scope.caffeine.input.unit;
@@ -55,7 +55,7 @@ app.controller('CaffeineController', ['$scope', function($scope) {
       $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight / 2.2046);
     }
     else if ($scope.caffeine.input.unit == 'lb') {
-      $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight * 2.2046)
+      $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight * 2.2046);
     };
   }
 
