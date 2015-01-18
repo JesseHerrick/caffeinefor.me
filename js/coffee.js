@@ -30,6 +30,7 @@ app.controller('CaffeineController', ['$scope', function($scope) {
   $scope.caffeine.output = {};
   // on any change run this function
   $scope.caffeine.onChange = function() {
+    $scope.caffeine.output.checkWeight();
     $scope.caffeine.output.perCup = (18.4375 * $scope.caffeine.input.cup); // theNew = oz in cup
     $scope.caffeine.output.neededCaffeine = Math.round(3 * $scope.caffeine.input.weightInKg);
     $scope.caffeine.output.cupsNeeded = Math.round(($scope.caffeine.output.neededCaffeine / $scope.caffeine.output.perCup)*10)/10
@@ -47,30 +48,6 @@ app.controller('CaffeineController', ['$scope', function($scope) {
       $scope.caffeine.input.weightInKg = weight
     };
   };
-  // update the output on input change
-  // oz per cup
-  $scope.$watch('caffeine.input.cup', function(theNew, theOld) {
-    $scope.caffeine.output.perCup = (18.4375 * theNew); // theNew = oz in cup
-    $scope.caffeine.onChange();
-  });
-  // weight (in kg)
-  $scope.$watch('caffeine.input.weight', function(theNew, theOld) {
-    $scope.caffeine.output.checkWeight(); // convert to kg if needed
-    $scope.caffeine.onChange();
-  });
-  // unit check (converts weight if necessary)
-  $scope.$watch('caffeine.input.unit', function(theNew, theOld) {
-    // if new unit is kg and the old is lb then convert to kg
-    if (theNew == 'kg' && theOld == 'lb') {
-      $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight / 2.2046)
-    }
-    // if new unit is lb and the old is kg then convert to lb
-    else if (theNew == 'lb' && theOld == 'kg') {
-      $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight * 2.2046)
-    }
-    $scope.caffeine.output.checkWeight(); // again, check and convert to kg if needed
-    $scope.caffeine.onChange();
-  });
 }]);
 
 // for random words about coffee

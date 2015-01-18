@@ -10,7 +10,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
     <script src="/js/coffee.js"></script>
-    
+
     <link rel="stylesheet" href="css/main.css">
   </head>
 
@@ -19,15 +19,15 @@
 
     <div class="container" ng-controller="CaffeineController">
     <p>I have coffee in a
-    <select name="size" id="size" ng-model="caffeine.input.cup">
+    <select name="size" id="size" ng-model="caffeine.input.cup" ng-change="caffeine.onChange()">
       <option value="6">6oz (Standard Coffee Mug)</option>
       <option value="8">8oz (Short - Starbucks)</option>
       <option value="12">12oz (Tall - Starbucks)</option>
       <option value="16">16oz (Grande - Starbucks)</option>
       <option value="20">20oz (Venti - Starbucks)</option>
     </select>
-    size cup, and my weight is about <input id="weight" ng-model="caffeine.input.weight" maxlength="5" onClick="this.select()" type="number" value="175">
-    <select name="unit" id="unit" ng-model="caffeine.input.unit">
+    size cup, and my weight is about <input id="weight" ng-model="caffeine.input.weight" maxlength="5" onClick="this.select()" type="number" value="175" ng-change="caffeine.onChange()">
+    <select name="unit" id="unit" ng-model="caffeine.input.unit" ng-change="caffeine.onChange()">
       <option value="lb">pounds</option>
       <option value="kg">kilograms</option>
     </select>
