@@ -42,12 +42,22 @@ app.controller('CaffeineController', ['$scope', function($scope) {
     var unit = $scope.caffeine.input.unit;
 
     if (unit == 'lb') {
-      $scope.caffeine.input.weightInKg = (weight / 2.2046)
+      $scope.caffeine.input.weightInKg = (weight / 2.2046);
     }
     else {
       $scope.caffeine.input.weightInKg = weight
     };
   };
+
+  // lb => kg OR kg => lb ON unit change
+  $scope.caffeine.input.changeUnit = function() {
+    if ($scope.caffeine.input.unit == 'kg') {
+      $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight / 2.2046);
+    }
+    else if ($scope.caffeine.input.unit == 'lb') {
+      $scope.caffeine.input.weight = Math.round($scope.caffeine.input.weight * 2.2046)
+    };
+  }
 
   // run example input on first load
   $scope.caffeine.onChange();
