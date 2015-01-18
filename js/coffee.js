@@ -48,6 +48,9 @@ app.controller('CaffeineController', ['$scope', function($scope) {
       $scope.caffeine.input.weightInKg = weight
     };
   };
+
+  // run example input on first load
+  $scope.caffeine.onChange();
 }]);
 
 // for random words about coffee
