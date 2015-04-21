@@ -2,6 +2,16 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
     
+    watch:
+      scripts:
+        files: 'coffee/caffeine.coffee'
+        tasks: ['coffee', 'uglify']
+    
+    connect:
+      server:
+        options:
+          port: 3000
+    
     coffee:
       dist:
         files:
@@ -14,7 +24,9 @@ module.exports = (grunt) ->
         files:
           'js/caffeine.min.js': 'js/caffeine.js'
   
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   
-  grunt.registerTask 'default', ['coffee', 'uglify']
+  grunt.registerTask 'default', ['connect', 'coffee', 'uglify', 'watch']

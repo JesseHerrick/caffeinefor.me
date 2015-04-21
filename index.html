@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="caffeineForMe" lang="en">
+<html lang="en">
   <head>
     <title>How much coffee?</title>
 
@@ -9,32 +9,32 @@
     <meta name="author" content="Jesse Herrick">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
-    <script src="/js/coffee.js"></script>
+    <script src="js/caffeine.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
   </head>
 
-  <body>
-    <h1 ng-controller="CoffeeController">Coffee is <span id="coffeeIs">{{coffee.is}}</span></h1>
+  <body ng-app="CaffeineForMe">
+    <h1>Coffee is <span id="coffeeIs">fantastic</span></h1>
 
-    <div class="container" ng-controller="CaffeineController">
+    <div class="container" ng-controller="CoffeeCtrl">
     <p>I have coffee in a
-    <select name="size" id="size" ng-model="caffeine.input.cup" ng-change="caffeine.onChange()">
+    <select name="size" ng-model="size">
       <option value="6">6oz (Standard Coffee Mug)</option>
       <option value="8">8oz (Short - Starbucks)</option>
       <option value="12">12oz (Tall - Starbucks)</option>
       <option value="16">16oz (Grande - Starbucks)</option>
       <option value="20">20oz (Venti - Starbucks)</option>
     </select>
-    size cup, and my weight is about <input id="weight" ng-model="caffeine.input.weight" maxlength="5" onClick="this.select()" type="number" value="175" ng-change="caffeine.onChange()">
-    <select name="unit" id="unit" ng-model="caffeine.input.unit" ng-change="caffeine.input.changeUnit();caffeine.input.checkWeight()">
+    size cup, and my weight is about <input name="weight" type="number" value="175" ng-model="weight">
+    <select name="unit" ng-model="unit">
       <option value="lb">pounds</option>
       <option value="kg">kilograms</option>
     </select>
     .
     </p>
 
-    <p>So I should drink about <span id="cups">{{ caffeine.output.cupsNeeded }}</span> <strong>{{ caffeine.output.cupsNeeded == 1 ? "cup" : "cups" }}</strong> of coffee (<strong>{{ caffeine.output.coffeeOz }} oz</strong> of coffee with <span id="caffeine">{{ caffeine.output.neededCaffeine }}</span><strong> mg</strong> of caffeine) to stay awake for the next 6 hours.</p>
+    <p>So I should drink about <span id="cups">{{ cups }}</span> <strong>{{ cups == 1 ? "cup" : "cups" }}</strong> of coffee (<strong>{{ coffee }} oz</strong> of coffee with <span id="caffeine">{{ caffeine }}</span><strong> mg</strong> of caffeine) to stay awake for the next 6 hours.</p>
     </div>
 
     <p class="disclaimer">(Your caffeine tolerance may vary.)</p>
