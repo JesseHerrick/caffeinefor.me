@@ -1,5 +1,5 @@
 (function() {
-  var Caffeine, Coffee, CoffeeCtrl, app, kgToLb, lbToKg, roundTo;
+  var Caffeine, Coffee, CoffeeCtrl, WordsCtrl, app, kgToLb, lbToKg, roundTo;
 
   roundTo = function(num, to) {
     var place;
@@ -86,6 +86,19 @@
     }
 
     return CoffeeCtrl;
+
+  })());
+
+  app.controller('WordsCtrl', WordsCtrl = (function() {
+    function WordsCtrl() {}
+
+    WordsCtrl.prototype.words = ["Beautiful", "Delicious", "Fulfilling", "Inspiring", "Bold"];
+
+    WordsCtrl.prototype.random = function() {
+      return this.words[Math.floor(Math.random() * this.words.length)];
+    };
+
+    return WordsCtrl;
 
   })());
 

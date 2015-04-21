@@ -37,6 +37,7 @@ class Coffee
     Math.round(@caffeine / 18.4375)
     
 app = angular.module 'CaffeineForMe', []
+
 app.controller 'CoffeeCtrl',
   class CoffeeCtrl
     constructor: ($scope) ->
@@ -66,5 +67,14 @@ app.controller 'CoffeeCtrl',
         $scope.coffee   = coffee.amount()
         $scope.caffeine = caffeine.amount()
           
-        
-      
+app.controller 'WordsCtrl',
+  class WordsCtrl
+    words: [
+      "Beautiful",
+      "Delicious",
+      "Fulfilling",
+      "Inspiring",
+      "Bold"
+    ]
+
+    random: -> @words[Math.floor(Math.random()*@words.length)]

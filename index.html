@@ -15,7 +15,9 @@
   </head>
 
   <body ng-app="CaffeineForMe">
-    <h1>Coffee is <span id="coffeeIs">fantastic</span></h1>
+    <div ng-controller="WordsCtrl as words">
+      <h1>Coffee is <span id="coffeeIs">{{words.random()}}.</span></h1>
+    </div>
 
     <div class="container" ng-controller="CoffeeCtrl">
     <p>I have coffee in a
