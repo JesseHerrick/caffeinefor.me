@@ -63,10 +63,9 @@ app.controller 'CoffeeCtrl',
         coffee = new Coffee($scope.size, caffeine.amount())
         
         # set some values
-        $scope.cups     = coffee.oz()
-        $scope.coffee   = coffee.amount()
+        $scope.coffee   = coffee.oz()
+        $scope.cups     = coffee.amount()
         $scope.caffeine = caffeine.amount()
-          
 app.controller 'WordsCtrl',
   class WordsCtrl
     words: [

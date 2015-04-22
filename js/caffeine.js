@@ -79,8 +79,8 @@
           unit: $scope.unit
         });
         coffee = new Coffee($scope.size, caffeine.amount());
-        $scope.cups = coffee.oz();
-        $scope.coffee = coffee.amount();
+        $scope.coffee = coffee.oz();
+        $scope.cups = coffee.amount();
         return $scope.caffeine = caffeine.amount();
       });
     }
