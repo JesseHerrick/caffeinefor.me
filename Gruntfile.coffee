@@ -5,13 +5,7 @@ module.exports = (grunt) ->
     watch:
       scripts:
         files: 'coffee/caffeine.coffee'
-<<<<<<< HEAD
         tasks: ['coffee']
-    
-=======
-        tasks: ['coffee', 'uglify']
-
->>>>>>> e17b333c24fcceb14bf3441e2b122cfbb49fa16e
     connect:
       server:
         options:
