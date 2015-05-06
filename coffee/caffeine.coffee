@@ -82,7 +82,7 @@ app.controller 'WordsCtrl',
 
 # watch for twitter button
 checkTwitterButton = ->
-  if typeof(twttr) == undefined
+  if typeof(twttr) == 'undefined'
     $('.twitter-share-button').hide()
   else
     $('.twitter-share-button').show()
