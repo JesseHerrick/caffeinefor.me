@@ -6,7 +6,6 @@ module.exports = (grunt) ->
       scripts:
         files: 'coffee/caffeine.coffee'
         tasks: ['coffee']
-
     connect:
       server:
         options:
@@ -20,5 +19,4 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
-
   grunt.registerTask 'default', ['connect', 'coffee', 'watch']

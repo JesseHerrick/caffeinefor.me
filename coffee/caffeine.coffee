@@ -63,17 +63,9 @@ app.controller 'CoffeeCtrl',
         coffee = new Coffee($scope.size, caffeine.amount())
         
         # set some values
-        $scope.cups     = coffee.oz()
-        $scope.coffee   = coffee.amount()
+        $scope.coffee   = coffee.oz()
+        $scope.cups     = coffee.amount()
         $scope.caffeine = caffeine.amount()
-      
-      # watch for twitter button
-      $('body').change ->
-        if typeof(twttr) == undefined
-          $('.twitter-share-button').hide()
-        else
-          $('.twitter-share-button').show()
-
 
 app.controller 'WordsCtrl',
   class WordsCtrl
@@ -86,3 +78,14 @@ app.controller 'WordsCtrl',
     ]
 
     random: -> @words[Math.floor(Math.random()*@words.length)]
+
+
+# watch for twitter button
+checkTwitterButton = ->
+  if typeof(twttr) == undefined
+    $('.twitter-share-button').hide()
+  else
+    $('.twitter-share-button').show()
+
+$(document).ready -> checkTwitterButton()
+$('body').change -> checkTwitterButton()

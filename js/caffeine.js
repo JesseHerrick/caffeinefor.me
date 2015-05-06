@@ -1,5 +1,5 @@
 (function() {
-  var Caffeine, Coffee, CoffeeCtrl, WordsCtrl, app, kgToLb, lbToKg, roundTo;
+  var Caffeine, Coffee, CoffeeCtrl, WordsCtrl, app, checkTwitterButton, kgToLb, lbToKg, roundTo;
 
   roundTo = function(num, to) {
     var place;
@@ -79,16 +79,9 @@
           unit: $scope.unit
         });
         coffee = new Coffee($scope.size, caffeine.amount());
-        $scope.cups = coffee.oz();
-        $scope.coffee = coffee.amount();
+        $scope.coffee = coffee.oz();
+        $scope.cups = coffee.amount();
         return $scope.caffeine = caffeine.amount();
-      });
-      $('body').change(function() {
-        if (typeof twttr === void 0) {
-          return $('.twitter-share-button').hide();
-        } else {
-          return $('.twitter-share-button').show();
-        }
       });
     }
 
@@ -108,5 +101,21 @@
     return WordsCtrl;
 
   })());
+
+  checkTwitterButton = function() {
+    if (typeof twttr === void 0) {
+      return $('.twitter-share-button').hide();
+    } else {
+      return $('.twitter-share-button').show();
+    }
+  };
+
+  $(document).ready(function() {
+    return checkTwitterButton();
+  });
+
+  $('body').change(function() {
+    return checkTwitterButton();
+  });
 
 }).call(this);
