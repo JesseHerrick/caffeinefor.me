@@ -66,7 +66,15 @@ app.controller 'CoffeeCtrl',
         $scope.cups     = coffee.oz()
         $scope.coffee   = coffee.amount()
         $scope.caffeine = caffeine.amount()
-          
+      
+      # watch for twitter button
+      $('body').change ->
+        if typeof(twttr) == undefined
+          $('.twitter-share-button').hide()
+        else
+          $('.twitter-share-button').show()
+
+
 app.controller 'WordsCtrl',
   class WordsCtrl
     words: [

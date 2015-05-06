@@ -83,6 +83,13 @@
         $scope.coffee = coffee.amount();
         return $scope.caffeine = caffeine.amount();
       });
+      $('body').change(function() {
+        if (typeof twttr === void 0) {
+          return $('.twitter-share-button').hide();
+        } else {
+          return $('.twitter-share-button').show();
+        }
+      });
     }
 
     return CoffeeCtrl;
